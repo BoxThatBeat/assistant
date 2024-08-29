@@ -22,7 +22,7 @@ export const ReviewNews = ({ news }: IProps) => {
   return (
     <>
       <Typography sx={{ display: "flex", alignItems: "center" }}>
-        <AnnouncementIcon /> {news.name}
+        <AnnouncementIcon /> {news.name} ({news.id})
       </Typography>
       <Box sx={{ m: 2 }}>
         <Tooltip

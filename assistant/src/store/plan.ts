@@ -10,13 +10,11 @@ const initialState: PlanState = {};
 
 export interface IAssignmentPlan {
   id: string;
-  templateId?: string;
   name: string;
   start: number;
   due: number;
   end: number;
 
-  holidayOffset: number;
   startOffset: DateOffset;
   dueOffset: DateOffset;
   endOffset: DateOffset;
@@ -24,21 +22,19 @@ export interface IAssignmentPlan {
 
 export interface IQuizPlan {
   id: string;
-  templateId?: string;
   name: string;
   start: number;
   due: number;
   end: number;
 
-  holidayOffset: number;
   startOffset: DateOffset;
   dueOffset: DateOffset;
   endOffset: DateOffset;
 }
 
 export interface INewsPlan {
+  id: string;
   name: string;
-  content: string;
   open: number;
   openOffset: DateOffset;
   dismiss: number;

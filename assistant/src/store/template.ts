@@ -7,7 +7,6 @@ export interface DateOffset {
 }
 
 export interface Assignment {
-  id?: string;
   name: string;
   start?: DateOffset;
   due: DateOffset;
@@ -15,7 +14,6 @@ export interface Assignment {
 }
 
 export interface Quiz {
-  id?: string;
   name: string;
   start?: DateOffset;
   due: DateOffset;
@@ -24,7 +22,6 @@ export interface Quiz {
 
 export interface Announcement {
   name: string;
-  content: string;
   start?: DateOffset;
   end?: DateOffset;
 }
@@ -40,11 +37,9 @@ export interface TemplateState {
   startDateUnixMS: number;
 }
 
-export const defaultStartDate = "2024-09-11";
-
 const initialState: TemplateState = {
   data: {},
-  startDateUnixMS: new Date(defaultStartDate).getTime(),
+  startDateUnixMS: new Date("2024-05-15").getTime(),
 };
 
 export const templateSlice = createSlice({

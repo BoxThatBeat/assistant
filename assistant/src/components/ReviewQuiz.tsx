@@ -3,11 +3,10 @@ import { Box, Tooltip, Typography } from "@mui/material";
 import { IQuizPlan } from "../store/plan";
 import { DateOffset } from "../store/template";
 
-const dateOffsetToString = (offset: DateOffset, holidayOffset?: number) => {
+const dateOffsetToString = (offset: DateOffset) => {
   let str = "semester start";
   if (offset.weeks) str += ` + ${offset.weeks} weeks`;
   if (offset.days) str += ` + ${offset.days} days`;
-  if (holidayOffset) str += ` + ${holidayOffset} holidays`;
   return str;
 };
 
@@ -34,11 +33,7 @@ export const ReviewQuiz = ({ quiz }: IProps) => {
           <Typography>Start: {formatDate(quiz.start)}</Typography>
         </Tooltip>
         <Tooltip
-          title={
-            <Typography>
-              {dateOffsetToString(quiz.dueOffset, quiz.holidayOffset)}
-            </Typography>
-          }
+          title={<Typography>{dateOffsetToString(quiz.dueOffset)}</Typography>}
         >
           <Typography>Due: {formatDate(quiz.due)}</Typography>
         </Tooltip>

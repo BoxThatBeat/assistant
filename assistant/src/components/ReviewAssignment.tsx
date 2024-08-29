@@ -3,11 +3,10 @@ import { Box, Tooltip, Typography } from "@mui/material";
 import { IAssignmentPlan } from "../store/plan";
 import { DateOffset } from "../store/template";
 
-const dateOffsetToString = (offset: DateOffset, holidayOffset?: number) => {
+const dateOffsetToString = (offset: DateOffset) => {
   let str = "semester start";
   if (offset.weeks) str += ` + ${offset.weeks} weeks`;
   if (offset.days) str += ` + ${offset.days} days`;
-  if (holidayOffset) str += ` + ${holidayOffset} holidays`;
   return str;
 };
 
@@ -37,12 +36,7 @@ export const ReviewAssignment = ({ assignment }: IReviewAssignmentProps) => {
         </Tooltip>
         <Tooltip
           title={
-            <Typography>
-              {dateOffsetToString(
-                assignment.dueOffset,
-                assignment.holidayOffset
-              )}
-            </Typography>
+            <Typography>{dateOffsetToString(assignment.dueOffset)}</Typography>
           }
         >
           <Typography>Due: {formatDate(assignment.due)}</Typography>
