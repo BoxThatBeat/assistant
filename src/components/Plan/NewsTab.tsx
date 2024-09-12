@@ -8,25 +8,25 @@ import {
   Typography,
 } from "@mui/material";
 import {
-  IAssignmentPlan,
-  addAssignmentPlan,
-  removeAssignmentPlan,
-  useIsAllAssignmentPlanned,
+  INewsPlan,
+  addNewsPlan,
+  removeNewsPlan,
+  useIsAllNewsPlanned,
 } from "../../store/plan";
-import { AssignmentRow } from "./AssignmentRow";
 import { useAppDispatch } from "../../store/hooks";
+import { NewsRow } from "./NewsRow";
 
-interface AssignmentTabProps {
-  assignments: IAssignmentPlan[];
+interface NewsTabProps {
+  news: INewsPlan[];
 }
 
-export const AssignmentTab = ({ assignments }: AssignmentTabProps) => {
+export const NewsTab = ({ news }: NewsTabProps) => {
   const dispatch = useAppDispatch();
-  const allPlanned = useIsAllAssignmentPlanned();
+  const allPlanned = useIsAllNewsPlanned();
 
   const onCheck = (_: unknown, checked: boolean) => {
-    const f = checked ? addAssignmentPlan : removeAssignmentPlan;
-    assignments.forEach((a) => dispatch(f(a)));
+    const f = checked ? addNewsPlan : removeNewsPlan;
+    news.forEach((a) => dispatch(f(a)));
   };
 
   return (
@@ -43,16 +43,14 @@ export const AssignmentTab = ({ assignments }: AssignmentTabProps) => {
             <Typography>Start</Typography>
           </TableCell>
           <TableCell>
-            <Typography>Due</Typography>
+            <Typography>Dismiss</Typography>
           </TableCell>
-          <TableCell>
-            <Typography>End</Typography>
-          </TableCell>
+          <TableCell>Content</TableCell>
         </TableRow>
       </TableHead>
       <TableBody>
-        {assignments.map((a) => (
-          <AssignmentRow key={a.id} assignment={a} />
+        {news.map((n) => (
+          <NewsRow key={n.name} news={n} />
         ))}
       </TableBody>
     </Table>

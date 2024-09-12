@@ -8,25 +8,25 @@ import {
   Typography,
 } from "@mui/material";
 import {
-  IAssignmentPlan,
-  addAssignmentPlan,
-  removeAssignmentPlan,
-  useIsAllAssignmentPlanned,
+  IQuizPlan,
+  addQuizPlan,
+  removeQuizPlan,
+  useIsAllQuizPlanned,
 } from "../../store/plan";
-import { AssignmentRow } from "./AssignmentRow";
 import { useAppDispatch } from "../../store/hooks";
+import { QuizRow } from "./QuizRow";
 
-interface AssignmentTabProps {
-  assignments: IAssignmentPlan[];
+interface QuizTabProps {
+  quizzes: IQuizPlan[];
 }
 
-export const AssignmentTab = ({ assignments }: AssignmentTabProps) => {
+export const QuizTab = ({ quizzes }: QuizTabProps) => {
   const dispatch = useAppDispatch();
-  const allPlanned = useIsAllAssignmentPlanned();
+  const allPlanned = useIsAllQuizPlanned();
 
   const onCheck = (_: unknown, checked: boolean) => {
-    const f = checked ? addAssignmentPlan : removeAssignmentPlan;
-    assignments.forEach((a) => dispatch(f(a)));
+    const f = checked ? addQuizPlan : removeQuizPlan;
+    quizzes.forEach((a) => dispatch(f(a)));
   };
 
   return (
@@ -51,8 +51,8 @@ export const AssignmentTab = ({ assignments }: AssignmentTabProps) => {
         </TableRow>
       </TableHead>
       <TableBody>
-        {assignments.map((a) => (
-          <AssignmentRow key={a.id} assignment={a} />
+        {quizzes.map((q) => (
+          <QuizRow key={q.id} quiz={q} />
         ))}
       </TableBody>
     </Table>
