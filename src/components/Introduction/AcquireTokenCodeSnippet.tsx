@@ -22,7 +22,7 @@ const CodeSnippet = (
   <Typography fontFamily={"Monaco"} component="span">
     console.<T col={"#dcdcaa"}>log</T>
     <T col={"#179fff"}>{"("}</T>JSON.<T col={"#dcdcaa"}>parse</T>
-    <T col={"#ffd702"}>{"("}</T>localstorage<T col={"#da6fd6"}>{"["}</T>
+    <T col={"#ffd702"}>{"("}</T>localStorage<T col={"#da6fd6"}>{"["}</T>
     <T col={"#ce9178"}>"D2L.Fetch.Tokens"</T>
     <T col={"#da6fd6"}>{"]"}</T>
     <T col={"#ffd702"}>{")"}</T>
