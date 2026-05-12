@@ -22,7 +22,7 @@ export const sortCourses = (
 
   const maxDate = facilitating.reduce(
     (date, f) =>
-      f.Access.StartDate.localeCompare(date) ? f.Access.StartDate : date,
+      f.Access.StartDate.localeCompare(date) > 0 ? f.Access.StartDate : date,
     "",
   );
 
